@@ -3,7 +3,7 @@
 -->
 <ion-view title="'Sign Up'">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <form name="signUpForm" ng-submit="signUp()">
+    <form name="signUpForm" ng-controller="SignUpFormCtrl" ng-submit="signUp()">
       <div class="list">
         <label class="item item-input">
           <input type="text" name="username" placeholder="Username" data-ng-model="username" autofocus required />
