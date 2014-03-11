@@ -1,15 +1,16 @@
-<!--
-  This template loads for the 'tab.about' state (app.js)
--->
 <ion-view title="'Sign In'">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <img src="img/ionic.png" class="ionic-logo">
-    <p>
-      Perhaps, but perhaps your civilization is merely the sewer of an even greater society above you! I'm a thing. 
-      You've killed me! Oh, you've killed me! Shut up and get to the point! But I know you in the future. 
-      I cleaned your poop. Quite possible. We live long and are celebrated poopers.
-    </p>
-    <button class="button button-block button-positive" ui-sref="signIn">Sign In</button>
-    <button class="button button-block button-assertive" ui-sref="launch">Cancel</button>
+    <form name="signInForm" ng-controller="SignInFormCtrl" ng-submit="signIn()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="username" placeholder="Username or Email" data-ng-model="username" autofocus required />
+        </label>
+        <label class="item item-input">
+          <input type="password" name="password" placeholder="Password" data-ng-model="password" required />
+        </label>
+        <button type="submit" class="button button-block button-positive">Sign In</button>
+        <button class="button button-block button-assertive" ui-sref="launch">Cancel</button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>
