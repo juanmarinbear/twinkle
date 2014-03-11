@@ -16,23 +16,29 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tabs.html"
+    // Sign Up / Sign In Pattern
+
+    .state('launch', {
+      url: "/launch",
+      templateUrl: "templates/launch.html"
     })
 
-    // the pet tab has its own child nav-view and history
-    .state('tab.pet-index', {
-      url: '/pets',
-      views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-index.html',
-          controller: 'PetIndexCtrl'
-        }
-      }
+    .state('launch.signUp', {
+      url: '/signUp',
+      templateUrl: 'templates/signUp.html'
     })
+
+    .state('launch.signIn', {
+      url: '/signIn',
+      templateUrl: 'templates/signIn.html'
+    })
+
+    .state('launch.passwordRecovery', {
+      url: '/passwordRecovery',
+      tempalteUrl: 'templates/passwordRecovery.html'
+    })
+
+    // Authenticated User Pattern
 
     .state('tab.pet-detail', {
       url: '/pet/:petId',
@@ -63,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/pets');
+  $urlRouterProvider.otherwise('/launch');
 
 });
 
