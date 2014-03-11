@@ -23,17 +23,17 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       templateUrl: "templates/launch.html"
     })
 
-    .state('launch.signUp', {
+    .state('signUp', {
       url: '/signUp',
       templateUrl: 'templates/signUp.html'
     })
 
-    .state('launch.signIn', {
+    .state('signIn', {
       url: '/signIn',
       templateUrl: 'templates/signIn.html'
     })
 
-    .state('launch.passwordRecovery', {
+    .state('passwordRecovery', {
       url: '/passwordRecovery',
       tempalteUrl: 'templates/passwordRecovery.html'
     })
