@@ -6,12 +6,15 @@ angular.module('starter.controllers', [])
       Auth.register({
         username: $scope.username,
         email: $scope.email,
-        password: $scope.password,
-        function() {
+        password: $scope.password},
+        function(user) {
+          console.log('Sign Up Success!');
+          console.log(user);
         },
-        function(err) {
-          $rootScope.error = err;
+        function(user, error) {
+          console.log('Error: ' + error);
+          $rootScope.error = error;
         }
-      });
+      );
     };
 }]);
