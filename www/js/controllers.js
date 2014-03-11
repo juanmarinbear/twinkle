@@ -12,9 +12,10 @@ angular.module('starter.controllers', [])
         function(user) {
           console.log('Sign Up Success!');
           console.log(user);
+          $location.path('/');
         },
         function(user, error) {
-          console.log('Error: ' + error);
+          console.log('Error!');
           console.log(error);
           $rootScope.error = error;
         }
@@ -33,9 +34,10 @@ angular.module('starter.controllers', [])
         function(user) {
           console.log('Sign In Success!');
           console.log(user);
+          $location.path('/');
         },
         function(user, error) {
-          console.log('Error: ' + error);
+          console.log('Error');
           console.log(error);
           $rootScope.error = error;
         }
