@@ -3,18 +3,20 @@
 -->
 <ion-view title="'Sign Up'">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <div class="list">
-      <label class="item intem-input">
-        <input type="text" placeholder="Username" />
-      </label>
-      <label class="item intem-input">
-        <input type="email" placeholder="Email (Optional)" />
-      </label>
-      <label class="item intem-input">
-        <input type="password" placeholder="Password" />
-      </label>
-      <button class="button button-block button-positive" ui-sref="Up">Sign Up</button>
-      <button class="button button-block button-assertive" ui-sref="launch">Cancel</button>
-    </div>
+    <form name="signUpForm" ng-submit="signUp()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="username" placeholder="Username" data-ng-model="username" autofocus required />
+        </label>
+        <label class="item item-input">
+          <input type="email" name="email" placeholder="Email (Optional)" data-ng-model="email" />
+        </label>
+        <label class="item item-input">
+          <input type="password" name="password" placeholder="Password" data-ng-model="password" required />
+        </label>
+        <button type="submit" class="button button-block button-positive">Sign Up</button>
+        <button class="button button-block button-assertive" ui-sref="launch">Cancel</button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>
