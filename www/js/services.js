@@ -1,5 +1,9 @@
 angular.module('starter.services', [])
 
+.factory('Auth', function($http, $cookieStore) {
+
+});
+
 /**
  * A simple example service that returns some data.
  */
