@@ -15,6 +15,28 @@ angular.module('starter.controllers', [])
         },
         function(user, error) {
           console.log('Error: ' + error);
+          console.log(error);
+          $rootScope.error = error;
+        }
+      );
+    };
+}])
+
+.controller('SignInFormCtrl',
+  ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+    $scope.signIn = function(){
+      Auth.signIn(
+        {
+          username: $scope.username,
+          password: $scope.password
+        },
+        function(user) {
+          console.log('Sign In Success!');
+          console.log(user);
+        },
+        function(user, error) {
+          console.log('Error: ' + error);
+          console.log(error);
           $rootScope.error = error;
         }
       );
