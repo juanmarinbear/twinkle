@@ -40,34 +40,10 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
     // Authenticated User Pattern
 
-    .state('tab.pet-detail', {
-      url: '/pet/:petId',
-      views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-detail.html',
-          controller: 'PetDetailCtrl'
-        }
-      }
-    })
-
-    .state('tab.adopt', {
-      url: '/adopt',
-      views: {
-        'adopt-tab': {
-          templateUrl: 'templates/adopt.html'
-        }
-      }
-    })
-
-    .state('tab.about', {
-      url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/about.html'
-        }
-      }
+    .state('user', {
+      url: '/',
+      templateUrl: 'tempalteUrl/home.html'
     });
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/launch');
 
