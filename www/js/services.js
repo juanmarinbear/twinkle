@@ -15,8 +15,8 @@ angular.module('starter.services', [])
       parseUser.signUp(null, { success: success, error: error });
     },
 
-    signIn: function(username, password, success, error) {
-      Parse.User.logIn(username, password, { success: success, error: error });
+    signIn: function(user, success, error) {
+      Parse.User.logIn(user.username, user.password, { success: success, error: error });
     }
 
   }
