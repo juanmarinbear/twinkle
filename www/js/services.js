@@ -1,30 +1,29 @@
 angular.module('starter.services', [])
 
-.factory('Auth', function($http, $cookieStore) {
+.factory('Parse', function() {
+  Parse.initialize("bI2DrpfOupDiOP6vsMG5JuqPc6Uf8VtREKkA7tFk", "MuWjOV8pYJuQZCmexYhq7nc60R1aqKBUwN2iOM5j");
+  return Parse;
+})
 
-});
+.factory('Storage', function() {
+  var storage = window.localStorage;
+  return storage;
+})
 
-/**
- * A simple example service that returns some data.
- */
-.factory('PetService', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Auth', ['$http', 'Parse', 'Storage', function($http, Parse, Storage) {
+  // var currentUser = $cookieStore.get('user') || { username: '' };
 
-  // Some fake testing data
-  var pets = [
-    { id: 0, title: 'Cats', description: 'Furry little creatures. Obsessed with plotting assassination, but never following through on it.' },
-    { id: 1, title: 'Dogs', description: 'Lovable. Loyal almost to a fault. Smarter than they let on.' },
-    { id: 2, title: 'Turtles', description: 'Everyone likes turtles.' },
-    { id: 3, title: 'Sharks', description: 'An advanced pet. Needs millions of gallons of salt water. Will happily eat you.' }
-  ];
+  // $cookieStore.remove('user');
 
   return {
-    all: function() {
-      return pets;
+    isLoggedIn: function(user) {
     },
-    get: function(petId) {
-      // Simple index lookup
-      return pets[petId];
+    register: function(user, success, error) {
+      var parseUser = new Parse.User(user);
+      parseUser.signUp(null, {
+        success: success,
+        error: error
+      });
     }
   }
-});
+}]);
