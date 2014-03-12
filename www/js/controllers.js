@@ -10,7 +10,7 @@ angular.module('starter.controllers', [])
           password: $scope.password
         },
         function(user) {
-          $state.go('user');
+          $state.go('user.home');
         },
         function(user, error) {
           console.log('Error!');
@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
           password: $scope.password
         },
         function(user) {
-          $state.go('user');
+          $state.go('user.home');
         },
         function(user, error) {
           console.log('Error');
