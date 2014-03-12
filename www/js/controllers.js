@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('SignUpFormCtrl',
-  ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+  ['$scope', '$state', 'Auth', function($scope, $state, Auth) {
     $scope.signUp = function(){
       Auth.signUp(
         {
@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
         function(user) {
           console.log('Sign Up Success!');
           console.log(user);
-          $location.path('/');
+          $state.go('user');
         },
         function(user, error) {
           console.log('Error!');
@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
 }])
 
 .controller('SignInFormCtrl',
-  ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+  ['$scope', '$state', 'Auth', function($scope, $state, Auth) {
     $scope.signIn = function(){
       Auth.signIn(
         {
@@ -32,9 +32,7 @@ angular.module('starter.controllers', [])
           password: $scope.password
         },
         function(user) {
-          console.log('Sign In Success!');
-          console.log(user);
-          $location.path('/');
+          $state.go('user');
         },
         function(user, error) {
           console.log('Error');
