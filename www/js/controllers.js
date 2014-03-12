@@ -10,14 +10,11 @@ angular.module('starter.controllers', [])
           password: $scope.password
         },
         function(user) {
-          console.log('Sign Up Success!');
-          console.log(user);
           $state.go('user');
         },
         function(user, error) {
           console.log('Error!');
           console.log(error);
-          $rootScope.error = error;
         }
       );
     };
@@ -37,7 +34,6 @@ angular.module('starter.controllers', [])
         function(user, error) {
           console.log('Error');
           console.log(error);
-          $rootScope.error = error;
         }
       );
     };
