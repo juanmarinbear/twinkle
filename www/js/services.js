@@ -20,7 +20,7 @@ angular.module('starter.services', [])
     },
 
     signIn: function(user, success, error) {
-      Parse.User.logIn(user, { success: success, error: error });
+      Parse.User.logIn(user.username, user.password, { success: success, error: error });
     },
 
     signOut: function() {
