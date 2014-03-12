@@ -10,13 +10,17 @@ angular.module('starter.services', [])
 
   return {
 
+    isSignedIn: function() {
+      return Parse.User.current() !== null;
+    },
+
     signUp: function(user, success, error) {
       var parseUser = new Parse.User(user);
       parseUser.signUp(null, { success: success, error: error });
     },
 
     signIn: function(user, success, error) {
-      Parse.User.logIn(user.username, user.password, { success: success, error: error });
+      Parse.User.logIn(user, { success: success, error: error });
     },
 
     signOut: function() {
