@@ -2,13 +2,13 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider ) {
 
-  $stateProvider
-
     // Sign Up / Sign In Pattern
+
+  $stateProvider
 
     .state('anon', {
       abstract: true,
-      template: "<ion-nav-view />"
+      template: "<ion-nav-view animation='slide-left-right-ios7' />"
     })
 
     .state('anon.launch', {
@@ -29,11 +29,18 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
     .state('anon.passwordRecovery', {
       url: '/passwordRecovery',
       tempalteUrl: 'templates/passwordRecovery.html'
-    })
+    });
 
     // Authenticated User Pattern
 
+  $stateProvider
+
     .state('user', {
+      abstract: true,
+      template: "<ion-nav-bar type='bar-positive'></ion-nav-bar><ion-nav-view></ion-nav-view>"
+    })
+
+    .state('user.home', {
       url: '/',
       templateUrl: 'templates/home.html'
     });
@@ -45,10 +52,13 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 .run(['$rootScope', '$state', 'Auth', function($rootScope, $state, Auth) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-    if(!Auth.isSignedIn()){
-
+    if(toState.name.match(/user./)) {
+      if(!Auth.isSignedIn()){
+        console.log("Error: seems like you tried accessing a route you don't have access to ...");
+        event.preventDefault();
+        $state.go('anon.launch');
+      }
     }
-  })
-
+  });
 }]);
 
