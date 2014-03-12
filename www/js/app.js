@@ -8,7 +8,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
     .state('anon', {
       abstract: true,
-      template: "<ui-view />"
+      template: "<ion-nav-view />"
     })
 
     .state('anon.launch', {
